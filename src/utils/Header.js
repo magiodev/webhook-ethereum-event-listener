@@ -1,5 +1,4 @@
 const Header = {
-
   types: {
     AUTHORIZATION: 'Authorization',
   },

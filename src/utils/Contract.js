@@ -6,7 +6,7 @@ const Contract = {
     return contractName
       ? JSON.parse(
         fs.readFileSync(path.join(__dirname, '../../contracts/' + contractName + '.json'))
-      )["abi"]
+      )['abi']
       : null
   },
 

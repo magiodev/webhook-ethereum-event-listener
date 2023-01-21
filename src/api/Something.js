@@ -1,4 +1,4 @@
-const Ajax = require('./Ajax.js')
+const Ajax = require('./Ajax')
 
 const Something = {
   postSomething: (params) => {

@@ -1,4 +1,5 @@
-const Something = require("../api/Something");
+const Something = require('../api/Something')
+
 const ApiCalls = {
   // -- Utils and reusable methods -- //
 
