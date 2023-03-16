@@ -1,10 +1,10 @@
-import ApiCalls from './api/ApiCalls'
-import Contract from './utils/Contract'
-import provider from './utils/Provider'
+const ApiCalls = require('./api/ApiCalls')
+const Contract = require('./utils/Contract')
+const provider = require('./utils/Provider')
 
-const YourContract = new provider.web3.eth.Contract(
-  Contract.getABI('YourContract'),
-  Contract.getAddress('YourContract')
+const GFALMarketplace = new provider.web3.eth.Contract(
+  Contract.getABI('GFALMarketplace'),
+  Contract.getAddress('GFALMarketplace')
 )
 
 const blocksOffset = process.env.APP_BLOCKS_OFFSET
@@ -37,7 +37,7 @@ const Sync = (() => {
 
   async function pastEvents(eventName, fromBlock, toBlock) {
     try {
-      return await YourContract.getPastEvents(eventName, {
+      return await GFALMarketplace.getPastEvents(eventName, {
         filter: {},
         fromBlock: String(fromBlock),
         toBlock: String(toBlock)

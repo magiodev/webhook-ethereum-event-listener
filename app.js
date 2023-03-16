@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,32 +35,26 @@ async function main() {
   }, Number(process.env.APP_SYNC_INTERVAL_MINUTES) * 60 * 1000);
 }
 
-// -- Wrapped Workflow -- //
-
 let listeners = []
 
 async function workflow() {
-  await unsubscribeListeners(listeners);
-  setEventListeners();
-  await syncPastEvents();
-}
+  // Subscribing from previous listeners
+  console.log('Unsubscribing old Event Listeners')
+  for (const l of listeners) {
+    await l.unsubscribe();
+  }
 
-function setEventListeners() {
-  console.log('Setting Event Listeners')
-  listeners.push(Listener.eventListenerYourEvent())
-}
+  // EventListeners workflow
+  console.log('Setting new Event Listeners')
+  listeners.push(Listener.eventListenerSellToken())
+  listeners.push(Listener.eventListenerRemoveToken())
+  listeners.push(Listener.eventListenerBuyToken())
 
-async function syncPastEvents() {
+  // Sync workflow
   console.log('Running Sync Past Event');
   try {
     await Sync.syncPastEvents()
   } catch (error) {
     console.error(error);
-  }
-}
-
-async function unsubscribeListeners(listeners) {
-  for (const l of listeners) {
-    await l.unsubscribe();
   }
 }
