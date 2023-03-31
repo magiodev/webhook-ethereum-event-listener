@@ -30,20 +30,18 @@ const Sync = (() => {
       iterationCurrent++
       fromBlock = fromBlock - blocksOffset
       toBlock = toBlock - blocksOffset
-      const events = await pastEvents(eventName, fromBlock, toBlock)
-      repeat = await postEvents(events)
-    }
-  }
 
-  async function pastEvents(eventName, fromBlock, toBlock) {
-    try {
-      return await GFALMarketplace.getPastEvents(eventName, {
-        filter: {},
-        fromBlock: String(fromBlock),
-        toBlock: String(toBlock)
-      })
-    } catch (error) {
-      console.error(error)
+      let events
+      try {
+        events = await GFALMarketplace.getPastEvents(eventName, {
+          filter: {},
+          fromBlock: String(fromBlock),
+          toBlock: String(toBlock)
+        })
+      } catch (error) {
+        console.error(error)
+      }
+      repeat = await postEvents(events)
     }
   }
 
@@ -52,7 +50,7 @@ const Sync = (() => {
       for (const event of events) {
         if (!parsedTxs.has(event.transactionHash)) {
           parsedTxs.add(event.transactionHash)
-          const repeat = await ApiCalls.postSomething(event)
+          const repeat = await ApiCalls.postSomething(event) // TODO
           if (repeat) {
             return true
           }
