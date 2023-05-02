@@ -1,9 +1,9 @@
-require('dotenv').config()
-const Web3 = require('web3')
-const provider = new Web3.providers.WebsocketProvider(process.env.PROVIDER_URL)
+require("dotenv").config();
+const ethers = require("ethers");
 
-const web3 = new Web3(provider)
+// Instance provider configuration
+const provider = new ethers.providers.JsonRpcProvider(
+  `${process.env.INFURA_TESTNET_API}`
+);
 
-module.exports = {
-  web3
-}
+module.exports = { provider };

@@ -1,0 +1,22 @@
+{
+  "GFALMarketplace": {
+    "97": "0x9A67F2A4d9A87442F4750ce36E54b930cF17a3a8",
+    "56": "0x0"
+  },
+  "Skin": {
+    "97": "0x458C909f42fDbFc54b41Cbc88520e6158038f5dF",
+    "56": "0x0"
+  },
+  "Skill": {
+    "97": "0x82e251e53C7d3F1CDfA1caE175D7C4D74461e8Ea",
+    "56": "0x0"
+  },
+  "ERC1155MockUp": {
+    "97": "0xE57e4ea07bFff56c94B52991618b73a1f8E082EC",
+    "56": "0x0"
+  },
+  "Deployer": {
+    "97": "0xA6086628befd7D894F465507e645A9049CE21Dc9",
+    "56": "0x0"
+  }
+}
