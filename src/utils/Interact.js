@@ -54,10 +54,23 @@ async function removeToken(contractNFT, seller, tokenId) {
     .removeToken(contractNFT.address, seller.address, tokenId);
 }
 
-// buy(skillSC, signerDc9, signerb3D, 8);
-// buy(skillSC, signerb3D, signerDc9, 8);
+async function approveSkin(owner, tokenId) {
+  await skinSC.connect(owner).approve(marketPlaceSC.address, tokenId);
+}
 
-// sell(skinSC, signerDc9, 8);
-// sell(skillSC, signerb3D, 8);
+async function main() {
+  buy(skinSC, signerb3D, signerDc9, 3);
+  // buy(skillSC, signerb3D, signerDc9, 8);
 
-// removeToken(skillSC, signerb3D, 8);
+  // await approveSkin(signerDc9, 1);
+  // await approveSkin(signerDc9, 2);
+  // await approveSkin(signerDc9, 3);
+
+  // await sell(skinSC, signerDc9, 1);
+  // await sell(skinSC, signerDc9, 3);
+  // await sell(skinSC, signerDc9, 2);
+  // sell(skillSC, signerb3D, 8);
+  // removeToken(skillSC, signerb3D, 8);
+}
+
+main();

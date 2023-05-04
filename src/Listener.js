@@ -68,7 +68,7 @@ const Listeners = {
 
         try {
           let response = await axios.post(
-            `${endPointPostEvents}listings`,
+            `${endPointPostEvents}/listings`,
             eventData,
             {
               headers: {
@@ -147,7 +147,7 @@ const Listeners = {
 
         try {
           let response = await axios.post(
-            `${endPointPostEvents}orders`,
+            `${endPointPostEvents}/orders`,
             eventData,
             {
               headers: {
@@ -203,7 +203,7 @@ const Listeners = {
 
         try {
           let response = await axios.delete(
-            `${endPointPostEvents}listings?contract=${eventData.collection}&tokenId=${eventData.tokenId}&seller=${eventData.seller}`,
+            `${endPointPostEvents}/listings?contract=${eventData.collection}&tokenId=${eventData.tokenId}&seller=${eventData.seller}`,
             {
               headers: {
                 Authorization: API_BEARER_TOKEN,

@@ -13,11 +13,10 @@ const API_BEARER_TOKEN = process.env.API_BEARER_TOKEN;
 // let fromBlockNumber = "29326769"; // Add blockNumber to Query from the one the server stopped + 1
 let fromBlockNumber;
 
-
 app.listen(PORT, async () => {
   console.log(`\nSERVER: Server running on http://localhost:${PORT}`);
 
-  let response = await axios.get(`${API_URL}blockchain/blocknumber`, {
+  let response = await axios.get(`${API_URL}/blockchain/blocknumber`, {
     headers: {
       Authorization: API_BEARER_TOKEN,
       "Content-Type": "application/json",
@@ -25,6 +24,10 @@ app.listen(PORT, async () => {
   });
 
   fromBlockNumber = response.data.blockNumber;
+  // -Infinity is the default value set in the DB.
+  if (response.data.blockNumber === "-Infinity") {
+    fromBlockNumber = process.env.BLOCK_NUMBER;
+  }
   console.log("Running from Block Number:", fromBlockNumber);
 
   // Sync past events

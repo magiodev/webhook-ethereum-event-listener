@@ -69,7 +69,7 @@ const Sync = {
 
       try {
         let response = await axios.post(
-          `${endPointPostEvents}listings`,
+          `${endPointPostEvents}/listings`,
           eventData,
           {
             headers: {
@@ -141,7 +141,7 @@ const Sync = {
       };
       try {
         let response = await axios.post(
-          `${endPointPostEvents}orders`,
+          `${endPointPostEvents}/orders`,
           eventData,
           {
             headers: {
