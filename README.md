@@ -1,6 +1,6 @@
 # Event Listener Webhook for Blockchain Transactions
 
-This Event Listener Webhook is designed to monitor and keep to date our DB about listing, removing and selling of NFTs on Games For A Living Marketplace, and to check if the NFT (ERC721 & ERC1155) on sale has been transferred to another address. If the NFT has been transferred, the Webhook will automatically remove the listing from the GFAL Marketplace, ensuring that the Marketplace remains up to date and accurate. Also, the application uses an API to retrieve the last indexed block number and syncs the transactions from there. In case of an error, it will retry from the last block number where it stopped and continue listening.
+This Event Listener Webhook is designed to monitor and keep to date our DB about listing, removing and selling of NFTs on Games For A Living Marketplace. Also, the application uses an API to retrieve the last indexed block number and syncs the transactions from there. In case of an error, it will retry from the last block number where it stopped and continue listening.
 
 ### Tech Stack
 

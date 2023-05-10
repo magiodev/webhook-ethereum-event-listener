@@ -59,18 +59,35 @@ async function approveSkin(owner, tokenId) {
 }
 
 async function main() {
-  buy(skinSC, signerb3D, signerDc9, 3);
-  // buy(skillSC, signerb3D, signerDc9, 8);
-
+  // TODO! Mint tokens
+  // TODO! Approve MarketPlace to manage them
+  // TODO! List them to sale
+  // TODO! Buy some & Remove some
+  // // Approval
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 10);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 11);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 12);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 13);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 14);
+  // await skinSC.connect(signerDc9).approve(marketPlaceSC.address, 15);
+  // await skinSC.connect(signerDc9).approve(marketPlaceSC.address, 16);
+  // await sell(skinSC, signerb3D, 10);
+  // await sell(skinSC, signerb3D, 11);
+  // await sell(skinSC, signerb3D, 12);
+  // await sell(skinSC, signerb3D, 13);
+  // await sell(skinSC, signerb3D, 14);
+  // await sell(skinSC, signerDc9, 15);
+  // await sell(skinSC, signerDc9, 16);
+  // await buy(skinSC, signerDc9, signerb3D, 10);
+  // await buy(skinSC, signerb3D, signerDc9, 16);
   // await approveSkin(signerDc9, 1);
   // await approveSkin(signerDc9, 2);
   // await approveSkin(signerDc9, 3);
-
   // await sell(skinSC, signerDc9, 1);
   // await sell(skinSC, signerDc9, 3);
   // await sell(skinSC, signerDc9, 2);
   // sell(skillSC, signerb3D, 8);
-  // removeToken(skillSC, signerb3D, 8);
+  // await removeToken(skinSC, signerb3D, 14);
 }
 
 main();

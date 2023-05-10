@@ -23,41 +23,23 @@ app.listen(PORT, async () => {
     },
   });
 
-  fromBlockNumber = response.data.blockNumber;
+  // From block number must be substracted to start from the last block number (As it will start from the next Block number set)
+  fromBlockNumber = response.data.blockNumber - 1;
   // -Infinity is the default value set in the DB.
   if (response.data.blockNumber === "-Infinity") {
-    fromBlockNumber = process.env.BLOCK_NUMBER;
+    fromBlockNumber = process.env.BLOCK_NUMBER - 1;
   }
   console.log("Running from Block Number:", fromBlockNumber);
 
   // Sync past events
   await Sync.ListenerMarketPlaceSelltoken(fromBlockNumber);
-
   await Sync.ListenerMarketPlaceBuyToken(fromBlockNumber);
-
   await Sync.ListenerMarketPlaceRemoveToken(fromBlockNumber);
-
-  await Sync.ListenerSkillTransfer(fromBlockNumber);
-
-  await Sync.ListenerSkinTransfer(fromBlockNumber);
-
-  await Sync.ListenerERC1155MockUpTransferSingle(fromBlockNumber);
-
-  await Sync.ListenerERC1155MockUpTransferBatch(fromBlockNumber);
 
   // List new events
   Listeners.ListenerMarketPlaceSelltoken();
   Listeners.ListenerMarketPlaceBuyToken();
-
   Listeners.ListenerMarketPlaceRemoveToken();
-
-  Listeners.ListenerSkillTransfer();
-
-  Listeners.ListenerSkinTransfer();
-
-  Listeners.ListenerERC1155MockUpTransferSingle();
-
-  Listeners.ListenerERC1155MockUpTransferBatch();
 });
 
 // Error handling
