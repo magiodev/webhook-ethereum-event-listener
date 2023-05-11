@@ -3,7 +3,7 @@ const ethers = require("ethers");
 const axios = require("axios");
 const Contract = require("./utils/Contract");
 const { myprog } = require("../MailGun/sendInfoMail");
-const {provider} = require("./utils/Provider");
+const { provider } = require("./utils/Provider");
 
 // URL to POST events
 const endPointPostEvents = process.env.API_URL;
@@ -39,7 +39,7 @@ const Listeners = {
             eventName: "SellToken",
             contract: collection,
             tokenId: tokenIdDecimals,
-            amount: amountDecimals,
+            amount: amountDecimals.toString(),
             price: priceDecimals.toString(),
             isDollar: isDollar,
             seller: seller,
@@ -118,8 +118,8 @@ const Listeners = {
             tokenId: tokenIdDecimals,
             amount: amountDecimals,
             price: priceDecimals.toString(),
-            sellerRevenue: sellerRevenueDecimals,
-            royalties: royaltiesDecimals,
+            sellerRevenue: sellerRevenueDecimals.toString(),
+            royalties: royaltiesDecimals.toString(),
             seller: seller,
             buyer: buyer,
             transactionHash: transactionHash,

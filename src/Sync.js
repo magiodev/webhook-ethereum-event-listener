@@ -52,9 +52,6 @@ const Sync = {
         },
       };
 
-      console.log(`PRICE SENT MTHDA: ${eventData.data.price}`);
-      console.log(eventData.data);
-
       try {
         let response = await axios.post(
           `${endPointPostEvents}/listings`,
@@ -119,8 +116,8 @@ const Sync = {
           tokenId: parseInt(tokenIdHex, 16),
           amount: parseInt(amountHex, 16),
           price: parseInt(priceHex, 16).toString(),
-          sellerRevenue: parseInt(revenueHex, 16),
-          royalties: parseInt(royaltiesHex, 16),
+          sellerRevenue: parseInt(revenueHex, 16).toString(),
+          royalties: parseInt(royaltiesHex, 16).toString(),
           seller: events[i].args[6],
           buyer: events[i].args[7],
           transactionHash: events[i].transactionHash,

@@ -37,7 +37,7 @@ async function sell(contractNFT, seller, tokenId) {
   //   await contractNFT.connect(seller).approve(contractNFT.address, tokenId);
   await marketPlaceSC
     .connect(seller)
-    .sellToken(contractNFT.address, tokenId, 1, 1, false);
+    .sellToken(contractNFT.address, tokenId, 1, 100, false);
 }
 
 async function buy(contractNFT, buyer, seller, tokenId) {
@@ -63,23 +63,30 @@ async function main() {
   // TODO! Approve MarketPlace to manage them
   // TODO! List them to sale
   // TODO! Buy some & Remove some
-  // // Approval
-  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 10);
-  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 11);
-  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 12);
-  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 13);
-  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 14);
-  // await skinSC.connect(signerDc9).approve(marketPlaceSC.address, 15);
-  // await skinSC.connect(signerDc9).approve(marketPlaceSC.address, 16);
-  // await sell(skinSC, signerb3D, 10);
-  // await sell(skinSC, signerb3D, 11);
-  // await sell(skinSC, signerb3D, 12);
-  // await sell(skinSC, signerb3D, 13);
-  // await sell(skinSC, signerb3D, 14);
-  // await sell(skinSC, signerDc9, 15);
-  // await sell(skinSC, signerDc9, 16);
-  // await buy(skinSC, signerDc9, signerb3D, 10);
-  // await buy(skinSC, signerb3D, signerDc9, 16);
+
+  // for (let i = 0; i < 10; i++) {
+  //   await skinSC.connect(signerb3D).safeMint(signerb3D.address, 0);
+  // }
+
+  // // // Approval
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 18);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 19);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 20);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 21);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 22);
+  // await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 23);
+  await skinSC.connect(signerb3D).approve(marketPlaceSC.address, 26);
+
+  // await sell(skinSC, signerb3D, 18);
+  // await sell(skinSC, signerb3D, 19);
+  // await sell(skinSC, signerb3D, 20);
+  // await sell(skinSC, signerb3D, 21);
+  // await sell(skinSC, signerb3D, 22);
+  // await sell(skinSC, signerb3D, 23);
+  await sell(skinSC, signerb3D, 26);
+
+  await buy(skinSC, signerDc9, signerb3D, 26);
+  // await buy(skinSC, signerDc9, signerb3D, 23);
   // await approveSkin(signerDc9, 1);
   // await approveSkin(signerDc9, 2);
   // await approveSkin(signerDc9, 3);
@@ -87,7 +94,8 @@ async function main() {
   // await sell(skinSC, signerDc9, 3);
   // await sell(skinSC, signerDc9, 2);
   // sell(skillSC, signerb3D, 8);
-  // await removeToken(skinSC, signerb3D, 14);
+
+  // await removeToken(skinSC, signerb3D, 21);
 }
 
 main();

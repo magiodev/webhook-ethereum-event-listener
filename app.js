@@ -24,7 +24,7 @@ app.listen(PORT, async () => {
   });
 
   // From block number must be substracted to start from the last block number (As it will start from the next Block number set)
-  fromBlockNumber = response.data.blockNumber - 1;
+  fromBlockNumber = response.data.blockNumber;
   // -Infinity is the default value set in the DB.
   if (response.data.blockNumber === "-Infinity") {
     fromBlockNumber = process.env.BLOCK_NUMBER - 1;
