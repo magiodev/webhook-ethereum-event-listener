@@ -10,7 +10,6 @@ const app = express();
 const API_URL = process.env.API_URL;
 const API_BEARER_TOKEN = process.env.API_BEARER_TOKEN;
 
-// let fromBlockNumber = "29326769"; // Add blockNumber to Query from the one the server stopped + 1
 let fromBlockNumber;
 
 app.listen(PORT, async () => {

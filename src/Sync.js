@@ -9,13 +9,6 @@ const { myprog } = require("../MailGun/sendInfoMail");
 const endPointPostEvents = process.env.API_URL;
 const API_BEARER_TOKEN = process.env.API_BEARER_TOKEN;
 
-// Instance provider
-// const provider = new ethers.providers.JsonRpcProvider(
-//   `${process.env.PROVIDER_TESTNET_HTTPS}`
-// );
-
-const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-
 // Instance Smart Contracts
 const marketPlaceSC = new ethers.Contract(
   process.env.MARKETPLACE_ADDRESS,
